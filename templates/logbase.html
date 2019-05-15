@@ -24,15 +24,15 @@
                  alt="avatar">
         </div>
         <div class="info__metadata">
-            <div class="info__guild-name"><span style='color:white'>Thread Logs</span> {% if log_entry.open %}
-                (Open){% else %}(Closed){% endif %}</div>
-            <div title="{{ log_entry.recipient.id }}" class="info__channel-topic tooltip"><span style="color:white">Recipient:
+            <div class="info__guild-name"><span style='color:white'>Ticket Support</span> {% if log_entry.open %}
+                (Ouvert){% else %}(Fermé){% endif %}</div>
+            <div title="{{ log_entry.recipient.id }}" class="info__channel-topic tooltip"><span style="color:white">Utilisateur:
                 <b>{{ log_entry.recipient.name | e }}</b></span>#{{ log_entry.recipient.discriminator }}
                 <span class='tooltiptext pre pre--inline'>{{ log_entry.recipient.id }}</span>
             </div>
             {% if log_entry.recipient != log_entry.creator %}
             <br>
-                <div class="info__channel-topic tooltip"><span style="color:white">Creator:
+                <div class="info__channel-topic tooltip"><span style="color:white">Créateur:
                     <b>{{ log_entry.creator.name | e }}</span></b>#{{ log_entry.creator.discriminator }}
                     <span class='tooltiptext pre pre--inline'>{{ log_entry.creator.id }}</span>
                 </div>
@@ -71,11 +71,11 @@
                         <span class="mod-tag">Reply</span>
                     {% endif %}
                     {% elif group.type == 'anonymous' %}
-                    <span class='mod-tag'>Anon</span>
+                    <span class='mod-tag'>Anonyme</span>
                     {% elif group.type == 'internal' %}
-                    <span class='internal-tag'>Internal</span>
+                    <span class='internal-tag'>Interne</span>
                     {% else %}
-                        <span>took a note</span><span class="system-tag">note</span>
+                        <span>took a note</span><span class="system-tag">Note</span>
                     {% endif %}
                     <span class="chatlog__timestamp">{{ group.created_at }}</span>
                     {% for message in group.messages %}
@@ -83,7 +83,7 @@
                             <div class="chatlog__content">
                                 {{ message.content }}
                                 {% if message.edited %}
-                                <span class="chatlog__edited-timestamp">(edited)</span>
+                                <span class="chatlog__edited-timestamp">(édité)</span>
                                 {% endif %}
                             </div>
 
@@ -94,7 +94,7 @@
                                     {% if attachment.is_image %}
                                     <img class="chatlog__attachment-thumbnail" src="{{ attachment.url }}" alt="attachment"/>
                                     {% else %}
-                                    Attachment: {{ attachment.filename }}
+                                    Attachement: {{ attachment.filename }}
                                     {% endif %}
                                 </a>
                             </div>
@@ -113,8 +113,8 @@
                     <span class="chatlog__author-name"
                           title="{{ log_entry.closer | string | e }}">{{ log_entry.closer.name }}</span>
                     {% if log_entry.closer.mod %}
-                        <span>closed the thread</span>
-                        <span class="system-tag">System</span>
+                        <span>a fermé le tiket</span>
+                        <span class="system-tag">Système</span>
                     {% endif %}
                     <span class="chatlog__timestamp">{{ log_entry.human_closed_at }}</span>
                     {% if log_entry.close_message %}

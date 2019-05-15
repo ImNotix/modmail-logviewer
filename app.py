@@ -37,7 +37,7 @@ async def init(app, loop):
 @app.get('/')
 async def index(request):
     return response.text('Ce site est utilisé pour afficher '
-                         'les logs des tikets support.')
+                         'les logs des tickets support.')
 
 
 @app.get('/logs/raw/<key>')
@@ -45,7 +45,7 @@ async def get_raw_logs_file(request, key):
     document = await app.db.logs.find_one({'key': key})
 
     if document is None:
-        return response.text('Tiket inexistant', status=404)
+        return response.text('Ticket inexistant', status=404)
 
     log_entry = LogEntry(app, document)
 
@@ -54,12 +54,12 @@ async def get_raw_logs_file(request, key):
 
 @app.get('/logs/<key>')
 async def get_logs_file(request, key):
-    """Renvoi du tiket rendue en texte brut"""
+    """Renvoi du ticket rendue en texte brut"""
 
     document = await app.db.logs.find_one({'key': key})
 
     if document is None:
-        return response.text('Tiket inexistant', status=404)
+        return response.text('Ticket inexistant', status=404)
 
     log_entry = LogEntry(app, document)
 

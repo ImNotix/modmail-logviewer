@@ -1,10 +1,10 @@
 {
-  "name": "ModMail Log Viewer",
-  "description": "A simple webserver to view selfhosted logs",
-  "repository": "https://github.com/kyb3r/logviewer",
+  "name": "Discord.FR Log Viewer",
+  "description": "Un simple serveur Web pour afficher les logs du support.",
+  "repository": "https://github.com/discord-fr/logviewer",
   "env": {
     "MONGO_URI": {
-        "description": "Mongodb connection uri that contains your modmail logs.",
+        "description": "Mongodb uri de connexion à la base de donnée.",
         "required": true
         }
     }

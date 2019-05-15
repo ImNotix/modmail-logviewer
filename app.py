@@ -36,8 +36,8 @@ async def init(app, loop):
 
 @app.get('/')
 async def index(request):
-    return response.text('Welcome! This simple website is '
-                         'used to display your Modmail logs.')
+    return response.text('Ce site est utilisé pour afficher '
+                         'les logs des tikets support.')
 
 
 @app.get('/logs/raw/<key>')
@@ -45,7 +45,7 @@ async def get_raw_logs_file(request, key):
     document = await app.db.logs.find_one({'key': key})
 
     if document is None:
-        return response.text('Not Found', status=404)
+        return response.text('Tiket inexistant', status=404)
 
     log_entry = LogEntry(app, document)
 
@@ -54,12 +54,12 @@ async def get_raw_logs_file(request, key):
 
 @app.get('/logs/<key>')
 async def get_logs_file(request, key):
-    """Returned the plain text rendered log entry"""
+    """Renvoi du tiket rendue en texte brut"""
 
     document = await app.db.logs.find_one({'key': key})
 
     if document is None:
-        return response.text('Not Found', status=404)
+        return response.text('Tiket inexistant', status=404)
 
     log_entry = LogEntry(app, document)
 

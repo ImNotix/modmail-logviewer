@@ -68,7 +68,7 @@
                     <span class="chatlog__author-name" title="{{ group.author | string | e }}">{{ group.author.name | e }}</span>
                     {% if group.type == 'thread_message' %}
                     {% if group.author.mod %}
-                        <span class="mod-tag">Reply</span>
+                        <span class="mod-tag">Réponse</span>
                     {% endif %}
                     {% elif group.type == 'anonymous' %}
                     <span class='mod-tag'>Anonyme</span>
